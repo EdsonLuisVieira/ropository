@@ -1,0 +1,62 @@
+#!/bin/bash
+
+#apt update
+#apt install apt-build -y
+#apt install apache2 libmysqlclient15-dev mysql-server php7.0 php7.0-gd php7.0-mysql php7.0-curl php7.0-imap php7.0-ldap -y
+#apt install libapache2-mod-perl2 libxml-simple-perl libcompress-zlib-perl libdbi-perl libdbd-mysql-perl libapache-dbi-perl libnet-ip-perl libsoap-lite-perl -y
+#perl -e shell -MCPAN
+
+#intall CPAN
+#reload CPAN
+#install XML::Entites
+#exit
+
+#apache2 reload
+#wget -c https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.2.1/OCSNG_UNIX_SERVER-2.2.1.tar.gz
+#tar -xzvf OCSNG_UNIX_SERVER-2.2.1.tar.gz
+#cd OCSNG_UNIX_SERVER-2.2.1
+#chmod +x setup.sh
+
+#./setup.sh
+
+#nessa parte
+#Where is Apache Include configuration directory [] ? /etc/apache2/conf-enabled
+
+#nano/etc/php/7.0/apache2/php.ini
+#Linha 368: max_execution_time = 200
+#Linha 378: max_input_time = 200
+#Linha 389: memory_limit = 512M
+#Linha 656: post_max_size = 300M
+#Linha 809: upload_max_filesize = 300M
+
+#mysql -u root -p
+#CREATE DATABASE ocsweb character set utf8;
+#CREATE USER ocs@localhost IDENTIFIED BY 'senha_ocsweb';
+#GRANT ALL PRIVILEGES ON *.* TO ocs@localhost;
+#flush privileges;
+#exit;
+
+#cd /etc/apache2/sites-enabled
+#nano z-ocsinventory-server.conf
+#Linha 29: PerlSetEnv OCS_DB_USER ocs
+#Linha 31: PerlSetVar OCS_DB_PWD senha_ocsweb
+
+#cd /usr/share/ocsinventory-reports/ocsreports/
+#nano dbconfig.inc.php 
+#define("DB_NAME"ù, "ocsweb"ù);
+#define("SERVER_READ","localhost"ù);
+#define("SERVER_WRITE"ù,"localhost"ù);
+#define("COMPTE_BASE","ocs");
+#define("PSWD_BASE"ù,"ùsenha_ocsweb"ù);
+
+#http://IPSERVIDOR/ocsreports
+
+#Login MySQL:<ocs>
+#MySQL Password:<senha_ocsweb>
+#MySQL Database:<ocsweb>
+#Mysql Hostanme:<localhost ou o IP do servidor de banco de dados>
+
+#admin-admin
+
+#cd /usr/share/ocsinventory-reports/ocsreports/
+#rm install.php
