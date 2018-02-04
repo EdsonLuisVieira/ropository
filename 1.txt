@@ -29,6 +29,10 @@
 #Linha 656: post_max_size = 300M
 #Linha 809: upload_max_filesize = 300M
 
+#nano /etc/apache2/conf-enabled/ocsinventory-reports.conf
+#Linha 49: php_value post_max_size 300m
+#Linha 50: php_value upload_max_filesize 300m
+
 #mysql -u root -p
 #CREATE DATABASE ocsweb character set utf8;
 #CREATE USER ocs@localhost IDENTIFIED BY 'senha_ocsweb';
