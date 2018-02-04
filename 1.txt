@@ -43,11 +43,11 @@
 
 #cd /usr/share/ocsinventory-reports/ocsreports/
 #nano dbconfig.inc.php 
-#define("DB_NAME", "ocsweb");
-#define("SERVER_READ","localhost");
-#define("SERVER_WRITE","localhost");
+#define("DB_NAME"Â, "ocsweb"Â);
+#define("SERVER_READ","localhost"Â);
+#define("SERVER_WRITE"Â,"localhost"Â);
 #define("COMPTE_BASE","ocs");
-#define("PSWD_BASE","senha_ocsweb");
+#define("PSWD_BASE"Â,"Âsenha_ocsweb"Â);
 
 #http://IPSERVIDOR/ocsreports
 
@@ -60,3 +60,8 @@
 
 #cd /usr/share/ocsinventory-reports/ocsreports/
 #rm install.php
+
+#apt install ocsinventory-agent
+#ocsinventory-agent
+
+#ip/---
