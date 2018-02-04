@@ -46,12 +46,9 @@
 #Linha 31: PerlSetVar OCS_DB_PWD senha_ocsweb
 
 #cd /usr/share/ocsinventory-reports/ocsreports/
-#nano dbconfig.inc.php 
-#define("DB_NAME", "ocsweb");
-#define("SERVER_READ","localhost");
-#define("SERVER_WRITE","localhost");
-#define("COMPTE_BASE","ocs");
-#define("PSWD_BASE","senha_ocsweb");
+$_SESSION["SERVEUR_SQL"]="localhost";
+$_SESSION["COMPTE_BASE"]="ocs";
+$_SESSION["PSWD_BASE"]="senha_ocsweb";
 
 #http://IPSERVIDOR/ocsreports
 
