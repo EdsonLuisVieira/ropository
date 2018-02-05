@@ -80,3 +80,6 @@ $_SESSION["PSWD_BASE"]="senha_ocsweb";
 #ocsinventory-agent
 
 #ip/---
+
+cd /usr/share/ocsinventory-reports/ocsreports/
+# rm install.php
