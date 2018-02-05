@@ -1,20 +1,33 @@
 #!/bin/bash
 
-#apt update
-#apt install apt-build -y
-#apt install apache2 libmysqlclient15-dev mysql-server php7.0 php7.0-gd php7.0-mysql php7.0-curl php7.0-imap php7.0-ldap -y
-#apt install libapache2-mod-perl2 libxml-simple-perl libcompress-zlib-perl libdbi-perl libdbd-mysql-perl libapache-dbi-perl libnet-ip-perl libsoap-lite-perl -y
+apt install make  gcc apache2 mariadb-server php7.0 
+php7.0-mysql php7.0-gd php7.0-xml
+php7.0-mbstring php7.0-curl
+libxml-simple-perl libdbi-perl libdbd-mysql-perl
+libapache-dbi-perl libnet-ip-perl php-pclzip
+apt install libarchive-zip-perl 
+apt install libsoap-lite-perl 
+apt install libxml-simple-perl 
+apt install libnet-ip-perl 
+apt install libapache-dbi-perl 
+apt install libmojolicious-perl 
+apt install libplack-perl 
+apt install php-soap
+
+#mysql_secure_installation
+
+wget -c https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4/OCSNG_UNIX_SERVER_2.4.tar.gz
 #perl -e shell -MCPAN
 
 #intall CPAN
 #reload CPAN
-#install XML::Entites
+#install XML::Entities
 #exit
 
 #apache2 reload
-#wget -c https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.2.1/OCSNG_UNIX_SERVER-2.2.1.tar.gz
-#tar -xzvf OCSNG_UNIX_SERVER-2.2.1.tar.gz
-#cd OCSNG_UNIX_SERVER-2.2.1
+
+#tar -xzvf OCSNG_UNIX_SERVER-2.4.tar.gz
+#cd OCSNG_UNIX_SERVER-2.4
 #chmod +x setup.sh
 
 #./setup.sh
@@ -40,12 +53,13 @@
 #flush privileges;
 #exit;
 
-#cd /etc/apache2/sites-enabled
+#cd /etc/apache2/conf-enabled
 #nano z-ocsinventory-server.conf
 #Linha 29: PerlSetEnv OCS_DB_USER ocs
 #Linha 31: PerlSetVar OCS_DB_PWD senha_ocsweb
 
 #cd /usr/share/ocsinventory-reports/ocsreports/
+dbconfig.inc.php file
 $_SESSION["SERVEUR_SQL"]="localhost";
 $_SESSION["COMPTE_BASE"]="ocs";
 $_SESSION["PSWD_BASE"]="senha_ocsweb";
