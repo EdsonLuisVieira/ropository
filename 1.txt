@@ -1,85 +1,29 @@
-#!/bin/bash
+-param normal
 
-apt install make  gcc apache2 mariadb-server php7.0 
-php7.0-mysql php7.0-gd php7.0-xml
-php7.0-mbstring php7.0-curl
-libxml-simple-perl libdbi-perl libdbd-mysql-perl
-libapache-dbi-perl libnet-ip-perl php-pclzip
-apt install libarchive-zip-perl 
-apt install libsoap-lite-perl 
-apt install libxml-simple-perl 
-apt install libnet-ip-perl 
-apt install libapache-dbi-perl 
-apt install libmojolicious-perl 
-apt install libplack-perl 
-apt install php-soap
+apt install krb5-user ldap-utils samba winbind smbclient acl attr ntp
 
-#mysql_secure_installation
+asa.edu.br
+127.0.0.1
+127.0.0.1
 
-wget -c https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4/OCSNG_UNIX_SERVER_2.4.tar.gz
-#perl -e shell -MCPAN
+samba-toll domain provision --use-rfc2307 --interactive
+ralm: asa.edu.br
+Domain: asa
+dc: enter
+DNS BACKEND: enter
+dns forward: 8.8.8.8
+senha admin: senha
 
-#intall CPAN
-#reload CPAN
-#install XML::Entities
-#exit
+systemctl stop smbd nmbd winbind 
+systemctl disable smbd nmbd winbind
+systemctl unmask samba-ad-dc
+systemctl start samba-ad-dc
 
-#apache2 reload
+kinit Administrator@asa.edu.br
+samba-tool user add ""
 
-#tar -xzvf OCSNG_UNIX_SERVER-2.4.tar.gz
-#cd OCSNG_UNIX_SERVER-2.4
-#chmod +x setup.sh
 
-#./setup.sh
 
-#nessa parte
-#Where is Apache Include configuration directory [] ? /etc/apache2/conf-enabled
+backup 
 
-#nano/etc/php/7.0/apache2/php.ini
-#Linha 368: max_execution_time = 200
-#Linha 378: max_input_time = 200
-#Linha 389: memory_limit = 512M
-#Linha 656: post_max_size = 300M
-#Linha 809: upload_max_filesize = 300M
-
-#nano /etc/apache2/conf-enabled/ocsinventory-reports.conf
-#Linha 49: php_value post_max_size 300m
-#Linha 50: php_value upload_max_filesize 300m
-
-#mysql -u root -p
-#CREATE DATABASE ocsweb character set utf8;
-#CREATE USER ocs@localhost IDENTIFIED BY 'senha_ocsweb';
-#GRANT ALL PRIVILEGES ON *.* TO ocs@localhost;
-#flush privileges;
-#exit;
-
-#cd /etc/apache2/conf-enabled
-#nano z-ocsinventory-server.conf
-#Linha 29: PerlSetEnv OCS_DB_USER ocs
-#Linha 31: PerlSetVar OCS_DB_PWD senha_ocsweb
-
-#cd /usr/share/ocsinventory-reports/ocsreports/
-dbconfig.inc.php file
-$_SESSION["SERVEUR_SQL"]="localhost";
-$_SESSION["COMPTE_BASE"]="ocs";
-$_SESSION["PSWD_BASE"]="senha_ocsweb";
-
-#http://IPSERVIDOR/ocsreports
-
-#Login MySQL:<ocs>
-#MySQL Password:<senha_ocsweb>
-#MySQL Database:<ocsweb>
-#Mysql Hostanme:<localhost ou o IP do servidor de banco de dados>
-
-#admin-admin
-
-#cd /usr/share/ocsinventory-reports/ocsreports/
-#rm install.php
-
-#apt install ocsinventory-agent
-#ocsinventory-agent
-
-#ip/---
-
-cd /usr/share/ocsinventory-reports/ocsreports/
-# rm install.php
+rsync -azv --progress --partial -e ssh admin@ip:/pastaorigem /backup
